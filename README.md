@@ -9,20 +9,20 @@ Usage:
 
 This saves `number_of_reviewpages` text files, each with ratings and reviews separated 
 by a new line, with no spaces before or after the reviews or ratings. 
-
+```
 review0
 rating0
 review1
 rating1
 ...
-
+```
 If there is no rating (rating0 doesn't exist) for a given review, 
-
+```
 review0
 review1
 rating1
 ...
-
+```
 Note: as of now, there are 20 reviews per page
 
 Note: The movie name must match the Rotten Tomatoes url.
