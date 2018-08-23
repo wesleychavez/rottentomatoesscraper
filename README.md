@@ -1,7 +1,6 @@
 # rottentomatoesscraper
-
 Saves critic reviews and ratings for a movie on rottentomatoes.com
-
+Requires: just Linux
 Usage:
 ```bash getReviews.sh movie_name number_of_reviewpages```
 
