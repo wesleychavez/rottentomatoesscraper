@@ -10,9 +10,15 @@ To scrape all reviews and ratings from 1980-2018,
 ```
 getAllReviews.sh calls getReviews.sh for each movie.  If you want to get ratings for a specific movie,
 
-`./getReviews.sh movie_name number_of_reviewpages`
+`./getReviews.sh movie_name`
 
-This saves `number_of_reviewpages` text files, each with ratings and reviews separated 
+Note: The movie name must match the Rotten Tomatoes url.
+
+To get reviews for "The Meg" (https://www.rottentomatoes.com/m/the_meg):
+
+```bash getReviews.sh the_meg```
+
+This saves text files, each with up to 20 ratings and reviews separated 
 by a new line, with no spaces before or after the reviews or ratings. 
 ```
 review0
@@ -21,19 +27,19 @@ review1
 rating1
 ...
 ```
-If there is no rating (rating0 doesn't exist) for a given review, 
+If there is no rating (rating0 doesn't exist) for a given review, a line is ommitted. 
 ```
 review0
 review1
 rating1
 ...
 ```
-Note: as of now, there are 20 reviews per page
+If there is no review (review1 doesn't exist) for a given rating, a new line is in place of the review.
+```
+review0
+rating0
 
-Note: The movie name must match the Rotten Tomatoes url.
-
-To get 40 reviews (2 pages) for "The Meg" (https://www.rottentomatoes.com/m/the_meg):
-
-```bash getReviews.sh the_meg 2```
-
-To get all the reviews, set number_of_reviewpages to a ridiculously high number.
+rating1
+...
+```
+Note: as of now, there are up to 20 reviews per page.
