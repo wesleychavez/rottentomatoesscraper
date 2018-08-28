@@ -1,3 +1,4 @@
+#!/bin/bash
 # getReviews.sh  Saves critic reviews and ratings for a movie on rottentomatoes.com
 
 # Usage:    bash getReviews.sh movie_name number_of_reviewpages
@@ -26,7 +27,7 @@ for i in $(seq 1 $2); do
     # Remove everything after the first occurence of " </div>" on each line (End of review text)
     # Remove everything after the first occurence of "</div>" on each line (End of rating text)
     # Sometimes it says " [Full Review in Spanish]" after the review before "</div>" so get rid of that too.
-    # Write and quit
+    # Write and quit.  "< /dev/tty" is for suppressing warning output that makes the terminal go bonkers.
     
     vim -c ':%s/the_review"> /\r/g' \
     -c ':%s/Original Score: /\r/g' \
@@ -34,7 +35,7 @@ for i in $(seq 1 $2); do
     -c ':%s/ <\/div>.*//g' \
     -c ':%s/<\/div>.*//g' \
     -c ':%s/ \[.*//g' \
-    -c ':wq' "$current_file"
+    -c ':wq' "$current_file" < /dev/tty
   
     # If we've parsed all the reviews
     if (($(cat "$current_file" | wc -l) == 0)); then

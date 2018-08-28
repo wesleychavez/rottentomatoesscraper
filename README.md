@@ -1,7 +1,13 @@
 # rottentomatoesscraper
-Saves critic reviews and ratings for a movie on rottentomatoes.com
+Saves critic reviews and ratings for the best movies on rottentomatoes.com
 
 Requires: just Linux
+
+To scrape all reviews and ratings from 1980-2018,
+```
+./getMovies.sh
+./getAllReviews.sh
+```
 
 Usage:
 
