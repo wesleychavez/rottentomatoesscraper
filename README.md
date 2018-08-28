@@ -8,10 +8,9 @@ To scrape all reviews and ratings from 1980-2018,
 ./getMovies.sh
 ./getAllReviews.sh
 ```
+getAllReviews.sh calls getReviews.sh for each movie.  If you want to get ratings for a specific movie,
 
-Usage:
-
-```bash getReviews.sh movie_name number_of_reviewpages```
+`./getReviews.sh movie_name number_of_reviewpages`
 
 This saves `number_of_reviewpages` text files, each with ratings and reviews separated 
 by a new line, with no spaces before or after the reviews or ratings. 
