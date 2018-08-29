@@ -4,8 +4,9 @@
 # Usage: ./getAllReviews.sh
 # Wesley Chavez 08-25-18
 
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 for i in {1980..2018}; do
     while IFS='' read -r line || [[ -n "$line" ]]; do
-        ./getReviews.sh $line
-    done < "$i.txt"
+        "$SCRIPTPATH/getReviews.sh" $line
+    done < "$SCRIPTPATH/years/$i.txt"
 done

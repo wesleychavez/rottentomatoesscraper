@@ -12,6 +12,9 @@
 # Created: 08-22-18
 ###################################
 
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+mkdir -p "$SCRIPTPATH/reviews"
+
 # Sometimes curl returns nothing.  Keep curling until num.txt is populated with number of review pages.
 empty_flag=1
 while [ "$empty_flag" -eq 1 ]; do
@@ -40,7 +43,7 @@ rm num.txt
 for i in $(seq 1 $num_review_pages); do 
 
     let "j = $i - 1" 
-    current_file="$1_$j.txt"
+    current_file="$SCRIPTPATH/reviews/$1_$j.txt"
     echo "$current_file"
 
     # Keep curling until current_file is populated with reviews
