@@ -43,3 +43,14 @@ rating1
 ...
 ```
 Note: as of now, there are up to 20 reviews per page.
+
+After scraping the reviews and ratings with 
+```
+./getMovies.sh
+./getAllReviews.sh
+```
+you can format the reviews and corresponding ratings nicely in .csv files with `./reviewsandratings2csv_all.sh`.
+This calls `./reviewsandratings2csv.sh` for every file in `reviews/`.
+
+`reviewsandratings2csv.sh` will only save the reviews for which there is a rating that is in increments of 0.5 out of 5 stars, or increments of 1 out of 10 stars.
+
